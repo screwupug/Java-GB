@@ -8,6 +8,11 @@ public class Main {
         minAndMaxInArray();
         System.out.println();
         moveElementsInArray(3);
+        System.out.println(isLeapYear2(2100));
+    }
+
+    private static boolean isLeapYear2(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
     }
 
     private static boolean isLeapYear(int year) {

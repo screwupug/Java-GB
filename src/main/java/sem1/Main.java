@@ -12,9 +12,9 @@ public class Main {
 
     private static void exerciseOne() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите имя: ");
+        System.out.print("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
         String userName = scanner.nextLine();
-        System.out.printf("Привет, %s!%n", userName);
+        System.out.printf("РџСЂРёРІРµС‚, %s!%n", userName);
         scanner.close();
     }
 
