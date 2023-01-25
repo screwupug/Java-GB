@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        lineBuilder();
+//        lineBuilder();
         System.out.println(isPalindrome());
     }
 
@@ -25,7 +25,7 @@ public class Main {
             }
         }
         reversedLine = new StringBuilder(line).reverse().toString();
-        return line.equals(reversedLine);
+        return line.equalsIgnoreCase(reversedLine);
     }
 
     public static void lineBuilder() {
