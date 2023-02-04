@@ -4,7 +4,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        linesSaver();
+//        linesSaver();
+        reverseList();
     }
 
     /*
@@ -60,5 +61,31 @@ public class Main {
                     break;
             }
         }
+    }
+
+    /*
+    Пусть дан LinkedList с несколькими элементами. Реализуйте метод, который вернет “перевернутый” список.
+     */
+    public static LinkedList<Integer> generateList() {
+        LinkedList<Integer> list = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(i);
+        }
+        System.out.println(list);
+        return list;
+    }
+
+    public static void reverseList() {
+        LinkedList<Integer> list = generateList();
+        /*
+        Это самый простой метод, который пришел мне в голову
+        Конечно, можно было бы воспользоваться особенностью двусвязного списка -
+        он хранит ссылки на предыдущий и следующий элементы. Однако для этого
+        необходимо создать отдельный класс и немало методов
+         */
+        for (int i = 0; i < list.size(); i++) {
+            list.add(i, list.pollLast());
+        }
+        System.out.println(list);
     }
 }
