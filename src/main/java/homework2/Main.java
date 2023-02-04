@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,35 +13,33 @@ public class Main {
     }
 
     public static boolean isPalindrome() {
-        Scanner scanner = new Scanner(System.in);
         String line;
-        String reversedLine;
-        while (true) {
-            try {
-                System.out.print("Введите слово/фразу для проверки на палиндром: ");
-                line = scanner.nextLine();
-                break;
-            } catch (Exception e) {
-                System.out.println("Ошибка ввода!");
+        System.out.print("Введите слово/фразу для проверки на палиндром: ");
+        line = new Scanner(System.in).nextLine();
+        char[] array = line.toLowerCase().toCharArray();
+        for (int i = 0, j = array.length - 1; i < array.length / 2; i++, j--) {
+            if (array[i] != array[j]) {
+                return false;
             }
         }
-        reversedLine = new StringBuilder(line).reverse().toString();
-        return line.equalsIgnoreCase(reversedLine);
+        return true;
+
     }
 
-    public static void lineBuilder() {
-        StringBuilder line = new StringBuilder();
-        line.append("TEST ".repeat(100));
-        writeInAFile(line.toString());
+    public static String lineBuilder() {
+        return "TEST".repeat(100);
     }
 
-    public static void writeInAFile(String line) {
+    public static void writeInAFile() {
         // В условии только одна строка, поэтому поток чтения можно не открывать
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/java/homework2/test.txt"))) {
+        String line = lineBuilder();
+        String path = "src/main/java/homework2/test.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path))) {
             writer.write(line);
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Success");
     }
 
 
