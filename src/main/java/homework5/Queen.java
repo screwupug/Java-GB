@@ -1,4 +1,4 @@
-package homework5;
+package sem1.homework5;
 
 public class Queen {
     private int x;
